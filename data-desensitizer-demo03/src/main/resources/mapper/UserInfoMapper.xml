@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.desensitizer.mapper.UserInfoMapper">
+    <insert id="addUser" useGeneratedKeys="true"
+            keyProperty="id" parameterType="com.desensitizer.domian.UserInfo">
+        insert into user(name,age,phone,id_card,bank_card,password,email) values (#{name}, #{age}, #{phone}, #{idCard}, #{bankCard}, #{password}, #{email})
+    </insert>
+
+
+    <select id="listUserInfo" resultType="com.desensitizer.domian.UserInfo">
+        select * from user;
+    </select>
+</mapper>
