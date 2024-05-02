@@ -1,12 +1,15 @@
 package com.desensitizer.service.impl;
 
 import com.desensitizer.domian.UserInfo;
+import com.desensitizer.domian.vo.UserInfoVo;
 import com.desensitizer.mapper.UserInfoMapper;
 import com.desensitizer.service.UserInfoService;
 import io.gitee.chemors.secure.ext.annotations.Desensitization;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,7 +35,14 @@ public class UserInfoServiceImpl implements UserInfoService {
 
     @Override
     @Desensitization
-    public List<UserInfo> listUserInfo() {
-        return userInfoMapper.listUserInfo();
+    public List<UserInfoVo> listUserInfo() {
+        List<UserInfo> userInfos = userInfoMapper.listUserInfo();
+        List<UserInfoVo> userInfoVos = new ArrayList<>();
+        for (UserInfo userInfo : userInfos) {
+            UserInfoVo userInfoVo = new UserInfoVo();
+            BeanUtils.copyProperties(userInfo,userInfoVo);
+            userInfoVos.add(userInfoVo);
+        }
+        return userInfoVos;
     }
 }

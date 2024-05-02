@@ -1,4 +1,4 @@
-package com.desensitizer.domian;
+package com.desensitizer.domian.vo;
 
 
 import io.gitee.chemors.secure.ext.annotations.DesensitizationProp;
@@ -13,28 +13,28 @@ import lombok.Data;
  */
 
 @Data
-public class UserInfo {
+public class UserInfoVo {
     private Integer id;
 
 //    @DesensitizationProp(SensitiveTypeEnum.CHINESE_NAME)
-//    @DesensitizationProp(value = SensitiveTypeEnum.CUSTOM,preLength = 1,sufLength = 2)  // 自定义脱敏长度
+    @DesensitizationProp(value = SensitiveTypeEnum.CUSTOM,preLength = 1,sufLength = 2)  // 自定义脱敏长度
     private String name;
 
     private Integer age;
 
-    //@DesensitizationProp(SensitiveTypeEnum.MOBILE_PHONE)
+    @DesensitizationProp(SensitiveTypeEnum.MOBILE_PHONE)
     private String phone;
 
-    //@DesensitizationProp(SensitiveTypeEnum.ID_CARD)
+    @DesensitizationProp(SensitiveTypeEnum.ID_CARD)
     private String idCard;
 
 
-    //@DesensitizationProp(SensitiveTypeEnum.BANK_CARD)
+    @DesensitizationProp(SensitiveTypeEnum.BANK_CARD)
     private String bankCard;
 
-    //@DesensitizationProp(SensitiveTypeEnum.PASSWORD)
+    @DesensitizationProp(SensitiveTypeEnum.PASSWORD)
     private String password;
 
-    //@DesensitizationProp(SensitiveTypeEnum.EMAIL)
+    @DesensitizationProp(SensitiveTypeEnum.EMAIL)
     private String email;
 }

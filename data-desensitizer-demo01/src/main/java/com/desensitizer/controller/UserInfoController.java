@@ -1,11 +1,14 @@
 package com.desensitizer.controller;
 
 import com.desensitizer.domian.UserInfo;
+import com.desensitizer.domian.vo.UserInfoVo;
 import com.desensitizer.service.UserInfoService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,7 +34,7 @@ public class UserInfoController {
 
 //    @Desensitization
     @GetMapping("/list")
-    public List<UserInfo> userInfoList(){
+    public List<UserInfoVo> userInfoList(){
         return userInfoService.listUserInfo();
     }
 
